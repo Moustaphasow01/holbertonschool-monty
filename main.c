@@ -41,7 +41,7 @@ void monty(args_t *args)
 		if (strcmp(line, "\n") == 0)
 			continue;
 		current_line = line;
-		code_func = get_func(line);
+		code_func = getfunc(line);
 		if (!code_func)
 		{
 			dprintf(2, "L%u: unknown instruction %s", args->line_number, line);
