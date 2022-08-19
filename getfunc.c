@@ -2,22 +2,27 @@
 
 /**
  * getfunc - selects the right function
- * @line: line from the bytecode file passed to main
+ * @parsed: line from the bytecode file passed to main
  *
  * Return: pointer to the selected function, or NULL 
  */
-void (*getfunc(char *line))(stack_t **, unsigned int)
+void (*getfunc(char **parsed))(stack_t **, unsigned int)
 {
 	instruction_t func_arr[] = {
 		{"push", push},
 		{"pall", pall}
+        {"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop}
 	};
 
-	int codes = 2, i;
+	int codes = 7, i;
 
 	for (i = 0; i < codes; i++)
 	{
-		if (strncmp(func_arr[i].opcode, line, 4) == 0)
+		if (strcmp(func_arr[i].opcode, parsed[0] )== 0)
 			return (func_arr[i].f);
 	}
 	return (NULL);
