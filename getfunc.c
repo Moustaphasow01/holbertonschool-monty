@@ -34,7 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int num = 0, i;
     if (data.words[1] == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -45,7 +45,7 @@ void push(stack_t **stack, unsigned int line_number)
 		if (isalpha(data.words[1][i]) != 0)
 		{
 		//testdevMoustapha2
-			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 			free_all(1);
             exit(EXIT_FAILURE);
 		}
@@ -56,7 +56,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (!new)
 	{
 		//testdevMoustapha3
-        dprintf(2, "Error: malloc failed\n");
+		dprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
