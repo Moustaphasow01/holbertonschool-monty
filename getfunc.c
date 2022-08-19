@@ -9,8 +9,8 @@
 void (*getfunc(char *line))(stack_t **, unsigned int)
 {
 	instruction_t func_arr[] = {
-		{"push", push_handler},
-		{"pall", pall_handler}
+		{"push", push},
+		{"pall", pall}
 	};
 
 	int codes = 2, i;

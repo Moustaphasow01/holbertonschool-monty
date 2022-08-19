@@ -48,8 +48,8 @@ typedef struct args_s
 extern char *current_line;
 
 void monty(args_t *args);
-void (*get_func(char *input))(stack_t **, unsigned int);
-void push_handler(stack_t **stack, unsigned int line_number);
-void pall_handler(stack_t **stack, unsigned int line_number);
+void (*getfunc(char *input))(stack_t **, unsigned int);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif
