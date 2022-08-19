@@ -32,43 +32,29 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	int num = 0, i;
-	char *bcode = strtok(current_line, " ");
-
-	if (strcmp(bcode, "push") != 0)
+	
+		for (i = 0; data.words[1][i]; i++)
 	{
-		//testdevMoustapha
-        dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line_number, bcode);
-		return;
-	}
-
-	bcode = strtok(NULL, " ");
-	for (i = 0; bcode[i]; i++)
-	{
-		if (isalpha(bcode[i]) != 0)
+		if (isalpha(data.words[1][i]) != 0)
 		{
 		//testdevMoustapha2
 			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
+			free_all(1);
+            exit(EXIT_FAILURE);
 		}
 	}
 
-	num = atoi(bcode);
-
-	new = malloc(sizeof(stack_t));
+    num = atoi(data.words[1]);
+	new = add_dnodeint(stack, num);
 	if (!new)
 	{
 		//testdevMoustapha3
-        dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		return;
+        dprintf(2, "Error: malloc failed\n");
+		free_all(1);
+		exit(EXIT_FAILURE);
 	}
 
-	new->n = num;
-	new->next = *stack;
-	new->prev = NULL;
-
-	if (*stack)
-		(*stack)->prev = new;
-	*stack = new;
+	
 }
 /**
  * pall- all prints all the values on the stack
@@ -77,22 +63,6 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *h;
-	char *bcode = strtok(current_line, " ");
-
-	if (strncmp(bcode, "pall", 4) != 0)
-	{
-		//testdevMoustapha4
-		dprintf(2, "L%u: unknown instruction %s\n", line_number, bcode);
-		return;
-	}
-
-	h = *stack;
-
-	while (h)
-	{
-		printf("%d\n", h->n);
-		//testdevMoustapha5
-		h = h->next;
-	}
+	(void)line_number;
+	print_dlistint(*stack);
 }
