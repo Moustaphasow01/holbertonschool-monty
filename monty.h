@@ -77,7 +77,7 @@ extern data_t data;
 /* main.c */
 
 void monty(args_t *args);
-void (*get_func(char **parsed))(stack_t **, unsigned int);
+void (*getfunc(char **parsed))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 
