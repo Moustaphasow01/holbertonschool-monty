@@ -12,7 +12,7 @@ void (*getfunc(char **parsed))(stack_t **, unsigned int)
 	instruction_t func_arr[] = 
     {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
         {"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
