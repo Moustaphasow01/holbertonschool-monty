@@ -1,4 +1,5 @@
 #include "monty.h"
+#include "lists.h"
 
 /**
  * getfunc - selects the right function
