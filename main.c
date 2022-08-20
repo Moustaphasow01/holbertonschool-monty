@@ -40,7 +40,7 @@ void monty(args_t *args)
 			free_all(0);
 			continue;
 		}
-		code_func = get_func(data.words);
+		code_func = getfunc(data.words);
 		if (!code_func)
 		{
 			dprintf(STDERR_FILENO, UNKNOWN, args->line_number, data.line);
