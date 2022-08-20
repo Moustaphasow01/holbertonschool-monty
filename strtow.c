@@ -31,8 +31,8 @@ int count_word(char *s)
  * **strtow - splits a string into words
  * @str: string to split
  *
- * Return: pointer to an array of strings (Success)
- * or NULL (Error)
+ * Return: pointer to an array of strings 
+ * or NULL 
  */
 char **strtow(char *str)
 {
@@ -50,7 +50,7 @@ char **strtow(char *str)
 
 	for (i = 0; i <= len; i++)
 	{
-		if (str[i] == ' ' || str[i] == '\0' || str[i] == '\n')
+		if (isspace(str[i]) || str[i] == '\0' || str[i] == '\n')
 		{
 			if (c)
 			{

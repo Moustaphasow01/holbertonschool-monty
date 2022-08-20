@@ -8,10 +8,11 @@
  */
 void (*getfunc(char **parsed))(stack_t **, unsigned int)
 {
-	instruction_t func_arr[] = {
+	instruction_t func_arr[] = 
+    {
 		{"push", push},
 		{"pall", pall}
-        {"pint", pint},
+     //   {"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
